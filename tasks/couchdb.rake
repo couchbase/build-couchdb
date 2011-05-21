@@ -102,6 +102,10 @@ namespace :couchdb do
     plugins << "#{DEPS}/geocouch"
   end
 
+  if File.exists? "#{DEPS}/mccouch/Makefile"
+    plugins << "#{DEPS}/mccouch"
+  end
+
   unless plugins.empty?
     puts "Setting otp_keep=\"*\" for building plugins"
     ENV['otp_keep'] = '*'
